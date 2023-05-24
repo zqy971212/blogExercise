@@ -1,4 +1,8 @@
 spring:
+  devtools:
+    restart:
+      additional-paths: src/main/java,src/main/resources
+      enabled: true
   datasource:
     url: jdbc:postgresql://localhost:5432/blog
     username: postgres
@@ -12,3 +16,10 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
+  thymeleaf:
+    cache: false
+server:
+  servlet:
+    session:
+      persistent: false
+
