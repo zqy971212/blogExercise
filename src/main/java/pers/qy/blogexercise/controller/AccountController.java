@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import pers.qy.blogexercise.model.entity.Account;
 import pers.qy.blogexercise.service.AccountService;
 
 @Controller
@@ -31,6 +32,13 @@ public class AccountController {
         } else {
             return "redirect:/register";
         }
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestParam String userEmail, @RequestParam String password) {
+        Account loginAccount = accountService.login(userEmail, password);
+        System.out.println(loginAccount);
+        return "success";
     }
 
 }

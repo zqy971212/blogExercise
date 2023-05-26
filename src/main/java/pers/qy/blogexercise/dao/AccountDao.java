@@ -14,6 +14,7 @@ public interface AccountDao extends JpaRepository<Account, Long> {
     @Query(value = "SELECT * FROM account WHERE user_email = :email", nativeQuery = true)
     Account findByUserEmail(@Param("email") String email);
 
+    Account findByUserEmailAndPassword(String email, String password);
     Account save(Account account);
 
     List<Account> findAll();

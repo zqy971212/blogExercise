@@ -56,4 +56,16 @@ public class AccountServiceImpl implements AccountService {
     public Account getByEmail(String email) {
         return accountDao.findByUserEmail(email);
     }
+
+    /**
+     * 用户登录
+     * @param userEmail
+     * @param password
+     * @return
+     */
+    @Override
+    public Account login(String userEmail, String password) {
+        Account account = accountDao.findByUserEmailAndPassword(userEmail, password);
+        return account;
+    }
 }

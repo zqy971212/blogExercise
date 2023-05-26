@@ -10,4 +10,6 @@ public interface AccountService {
     List<Account> getAllAccounts();
 
     Account getByEmail(String email);
+
+    Account login(String userEmail, String password);
 }
