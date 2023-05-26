@@ -2,6 +2,7 @@ package pers.qy.blogexercise.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pers.qy.blogexercise.config.WebSecurityConfig;
 import pers.qy.blogexercise.dao.AccountDao;
 import pers.qy.blogexercise.model.entity.Account;
 import pers.qy.blogexercise.service.AccountService;
@@ -12,6 +13,7 @@ import java.util.List;
 public class AccountServiceImpl implements AccountService {
     @Autowired
     AccountDao accountDao;
+
 
     /**
      * 创建用户
@@ -30,6 +32,7 @@ public class AccountServiceImpl implements AccountService {
             newAccount.setPassword(password);
 
             Account res = accountDao.save(newAccount);
+            WebSecurityConfig.addUser(email, password);
             return res != null;
         }
         return false;

@@ -17,42 +17,42 @@
 </head>
 
 <body>
-<!--<header>-->
-<!--        &lt;!&ndash;スマートフォン&ndash;&gt;-->
-<!--        <nav class="menu">-->
-<!--            <div class="logo">-->
-<!--                <a href="#"><img th:src="@{/images/logo.png}"></a>-->
-<!--            </div>-->
-<!--            <div class="menu-contents">-->
-<!--                <div class="menu-inner">-->
-<!--                    <ul>-->
-<!--                        <li class="menu__item"><a th:href="@{/login}">ログイン</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <div class="menu-toggle_btn">-->
-<!--                    <span></span>-->
-<!--                    <span></span>-->
-<!--                    <span></span>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </nav>-->
-<!--        &lt;!&ndash;pc&ndash;&gt;-->
-<!--        <nav class="pc">-->
-<!--            <div class="pc-inner">-->
-<!--                <div class="pc-logo">-->
-<!--                    <a href=""><img th:src="@{/images/logo.png}"></a>-->
-<!--                </div>-->
-<!--                <ul class="pc-list">-->
-<!--                <li class="pc-list__item"><a th:href="@{/login}">ログイン</a></li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </nav>-->
-<!--    </header>-->
+<header>
+        <!--スマートフォン-->
+        <nav class="menu">
+            <div class="logo">
+                <a href="#"><img th:src="@{/images/logo.png}"></a>
+            </div>
+            <div class="menu-contents">
+                <div class="menu-inner">
+                    <ul>
+                        <li class="menu__item"><a th:href="@{/login}">ログイン</a></li>
+                    </ul>
+                </div>
+                <div class="menu-toggle_btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+        <!--pc-->
+        <nav class="pc">
+            <div class="pc-inner">
+                <div class="pc-logo">
+                    <a href=""><img th:src="@{/images/logo.png}"></a>
+                </div>
+                <ul class="pc-list">
+                <li class="pc-list__item"><a th:href="@{/login}">ログイン</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <main>
         <div class="main-inner">
             <section class="register-section">
                 <h2>管理者登録画面</h2>
-                <form method="POST" th:action="@{/admin/register}">
+                <form method="POST" th:action="@{/register}">
                     <div class="register-section-details">
                         <div class="register-section-details_flex">
                             <div>UserName</div>
