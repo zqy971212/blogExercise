@@ -26,5 +26,5 @@ public class Blog {
     private String message;
 
     @Column(name = "user_id")
-    private String userId;
+    private Long userId;
 }

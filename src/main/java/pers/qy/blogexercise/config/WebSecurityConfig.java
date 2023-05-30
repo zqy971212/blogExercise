@@ -28,17 +28,17 @@ public class WebSecurityConfig{
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.formLogin(login -> login
-                .loginPage("/login")
-                .defaultSuccessUrl("/blog/all",true)
+                .loginPage("/admin/login")
+                .defaultSuccessUrl("/admin/blog/all",true)
                 .usernameParameter("userEmail") //リクエストパラメータのname属性を明示
                 .passwordParameter("password")
-                .failureUrl("/login?error")
+                .failureUrl("/admin/login?error")
                 .permitAll()
         ).logout(logout -> logout
-                .logoutSuccessUrl("/login")
+                .logoutSuccessUrl("/admin/login")
         ).authorizeHttpRequests(authz -> authz
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .requestMatchers("/blog/**","/register","/css/**", "/js/**","/blog-image/**","/images/**").permitAll()
+                .requestMatchers("/blog/**","/admin/register","/css/**", "/js/**","/blog-image/**","/images/**").permitAll()
                 .anyRequest().authenticated()
         );
         return http.build();
