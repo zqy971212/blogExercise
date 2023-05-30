@@ -48,7 +48,7 @@ public class BlogController {
         Long userId = account.getUserId();
 
         List<Blog> blogList = blogService.selectByUserId(userId);
-
+        System.out.println(blogList);
         model.addAttribute("blogList",blogList);
         model.addAttribute("userName",userName);
         return "admin_blog_all";
@@ -56,24 +56,13 @@ public class BlogController {
 
     @GetMapping("/blog/register")
     public String getBlogCreatePage(Model model) {
-        //		現在のリクエストに紐づく Authentication を取得するには SecurityContextHolder.getContext().getAuthentication() とする。
-        //		SecurityContextHolder.getContext() は、現在のリクエストに紐づく SecurityContext を返している。
-        //		Authentication.getAuthorities() で、現在のログインユーザーに付与されている権限（GrantedAuthority のコレクション）を取得できる。
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        //ログインした人のメールアドレスを取得
         String userEmail = auth.getName();
-        //accountテーブルの中から、ユーザーのEmailで検索をかけて該当するユーザーの情報を引っ張り出す。
         Account user = accountService.getByEmail(userEmail);
-        //accountテーブルの中からログインしているユーザーのIDを取得
         Long userId = user.getUserId();
-        //accountテーブルの中からログインしているユーザーの名前の取得
         String userName = user.getUserName();
-        //カテゴリー一覧を取得
         List<Category>categoryList = categoryService.findAll();
 
-        //userId（管理者のId）、categoryList（カテゴリ一覧）
-        //userName（管理者の名前）をmodelにセットし
-        //admin_blog_register.htmlから参照可能にする。
         model.addAttribute("userId",userId);
         model.addAttribute("categoryList",categoryList);
         model.addAttribute("userName",userName);

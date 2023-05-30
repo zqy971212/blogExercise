@@ -79,9 +79,13 @@
 							</div>
 							<img th:src="@{/blog-image/{items}(items=${blog.blogImage})}">
 						</a>
-						<div class="colum__box" th:text=" ${blog.blogTitle}">
-
+						<div class="colum__box">
+							<p>Title: <span th:text="${blog.blogTitle}"></span></p>
 						</div>
+						<div class="colum__box">
+							<p>Message: <span th:text="${blog.message}"></span></p>
+						</div>
+
 					</div>
 
 				</div>

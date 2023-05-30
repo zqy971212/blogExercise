@@ -69,5 +69,4 @@ public class BlogServiceImpl implements BlogService {
         blogDao.deleteByBlogId(id);
     }
 
-
 }
